@@ -1,0 +1,1065 @@
+/* ==========================================================================
+   THIỆP MỜI LỄ TỐT NGHIỆP — ĐẠI HỌC FPT CẦN THƠ
+   Phong cách: Sáng Sang & Tối Giản (Luminous Pearl, Warm Cashmere & Champagne Gold)
+   ========================================================================== */
+
+:root {
+  /* Bảng màu Sáng Sang (Luminous Daylight Luxury) */
+  --bg-canvas-top: #FCFBF8;
+  --bg-canvas-mid: #F3EDE2;
+  --bg-canvas-edge: #E6DDD0;
+
+  /* Phong bì giấy Cotton Ngà & Lót Vàng Champagne */
+  --env-ivory-light: #FDFBF7;
+  --env-ivory-mid: #F6F0E4;
+  --env-ivory-pocket: #F2E9DA;
+  --env-ivory-side: #EDE3D2;
+  --env-gold-liner: #D6BA7D;
+
+  /* Giấy thiệp Trắng Ngọc Trai */
+  --paper-ivory: #FFFEFA;
+  --paper-warm-box: #F9F5EC;
+  --paper-border: #E5DBC8;
+
+  /* Mực in & Điểm nhấn Quý Tộc */
+  --ink-primary: #1C1917;
+  --ink-secondary: #4A443D;
+  --ink-muted: #787065;
+  --seal-bordeaux: #8B1E29;
+  --seal-bordeaux-dark: #63111A;
+  --gold-primary: #B08A42;
+  --gold-light: #D4B475;
+  --gold-faint: rgba(176, 138, 66, 0.28);
+
+  /* Typography */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Chuyển động mượt mà */
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--bg-canvas-mid);
+  background-image:
+    radial-gradient(circle at 50% 18%, var(--bg-canvas-top) 0%, var(--bg-canvas-mid) 56%, var(--bg-canvas-edge) 100%);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Canvas pháo bụi vàng Champagne */
+#glitter-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ==========================================================================
+   THANH ĐIỀU HƯỚNG TỐI GIẢN SÁNG SANG
+   ========================================================================== */
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  padding: 0 clamp(16px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(252, 250, 246, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(176, 138, 66, 0.18);
+  z-index: 80;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.brand-dot {
+  color: var(--gold-primary);
+  font-size: 9px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(176, 138, 66, 0.3);
+  color: var(--ink-secondary);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-soft);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-btn .nav-muted {
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+.nav-btn strong {
+  color: var(--seal-bordeaux);
+  font-weight: 600;
+}
+
+.nav-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--gold-primary);
+  color: var(--ink-primary);
+  box-shadow: 0 3px 10px rgba(176, 138, 66, 0.12);
+}
+
+.nav-btn-accent {
+  background: rgba(176, 138, 66, 0.1);
+  border-color: rgba(176, 138, 66, 0.4);
+  color: #7D5E24;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   KHÔNG GIAN HIỂN THỊ CHÍNH (MAIN STAGE)
+   ========================================================================== */
+.experience-stage {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 76px 16px 48px;
+  perspective: 1400px;
+}
+
+/* ==========================================================================
+   BƯỚC 1: PHONG BÌ KEM NGÀ 3D & SÁP ĐỎ RUBY (3D LUXURY ENVELOPE)
+   ========================================================================== */
+.envelope-scene {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.45s var(--ease-soft), transform 0.55s var(--ease-spring);
+}
+
+body[data-state="opened"] .envelope-scene {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(40px) scale(0.95);
+  display: none;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.44 / 1;
+  background: var(--env-ivory-mid);
+  border-radius: 10px;
+  box-shadow:
+    0 26px 60px -14px rgba(85, 68, 42, 0.22),
+    0 8px 22px -6px rgba(85, 68, 42, 0.12),
+    0 0 0 1px rgba(176, 138, 66, 0.35),
+    inset 0 1px 0 #FFFFFF;
+  overflow: visible;
+  perspective: 1400px;
+  cursor: pointer;
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring);
+}
+
+.envelope-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 34px 72px -14px rgba(85, 68, 42, 0.28),
+    0 12px 28px -6px rgba(85, 68, 42, 0.15),
+    0 0 0 1px rgba(176, 138, 66, 0.55),
+    inset 0 1px 0 #FFFFFF;
+}
+
+/* Lớp lót vàng Champagne bên trong phong bì */
+.envelope-back-liner {
+  position: absolute;
+  inset: 2px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #DFC994 0%, #C7A45E 50%, #E5D2A4 100%);
+  z-index: 1;
+}
+
+/* Tấm thiệp bên trong phong bì trượt lên khi mở */
+.envelope-rising-card {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: 10%;
+  bottom: 10%;
+  background: var(--paper-ivory);
+  border: 1px solid rgba(176, 138, 66, 0.45);
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(60, 45, 25, 0.15);
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 22px;
+  opacity: 0;
+  transform: translateY(8%);
+  transition: transform 0.68s var(--ease-spring) 0.12s, opacity 0.2s ease 0.1s;
+}
+
+.rising-card-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rising-kicker {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gold-primary);
+}
+
+.rising-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--ink-primary);
+}
+
+body[data-state="opening"] .envelope-rising-card {
+  opacity: 1;
+  transform: translateY(-48%);
+}
+
+/* 2 cánh gập trái & phải của phong bì tạo khối 3D chân thực */
+.envelope-side-flaps {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--env-ivory-side) 0%, var(--env-ivory-mid) 50%, var(--env-ivory-side) 100%);
+  clip-path: polygon(0 0, 50% 38%, 100% 0, 100% 100%, 0 100%);
+  z-index: 3;
+}
+
+/* Túi phong bì phía dưới */
+.envelope-pocket {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  clip-path: polygon(0 100%, 50% 36%, 100% 100%);
+  background: linear-gradient(180deg, var(--env-ivory-light) 0%, var(--env-ivory-pocket) 100%);
+  filter: drop-shadow(0 -3px 8px rgba(80, 62, 35, 0.08));
+  z-index: 3;
+}
+
+/* Viền chỉ vàng mảnh chạy quanh mặt phong bì */
+.envelope-face {
+  position: absolute;
+  inset: 11px;
+  border: 1px solid rgba(176, 138, 66, 0.35);
+  border-radius: 5px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Nắp phong bì trên cùng gập xuống (3D Flip Flap) */
+.envelope-flap-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 39%;
+  background: linear-gradient(180deg, var(--env-ivory-light) 0%, #EFE7D8 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.65s var(--ease-spring), z-index 0.1s linear 0.2s;
+  z-index: 5;
+  filter: drop-shadow(0 6px 12px rgba(85, 68, 42, 0.14));
+}
+
+body[data-state="opening"] .envelope-flap-top {
+  transform: rotateX(180deg);
+  background: linear-gradient(180deg, #DFC994 0%, #C7A45E 100%);
+  z-index: 1;
+}
+
+/* Nội dung mặt ngoài phong bì */
+.envelope-details {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 12px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px 12px;
+  z-index: 4;
+  text-align: center;
+}
+
+.env-kicker {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 4px;
+}
+
+.env-guest-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  color: var(--seal-bordeaux);
+  margin-bottom: 4px;
+  line-height: 1.15;
+}
+
+.env-sub {
+  font-size: 11.5px;
+  color: var(--ink-secondary);
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.env-open-hint {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(176, 138, 66, 0.1);
+  transition: all 0.25s var(--ease-soft);
+}
+
+.envelope-wrapper:hover .env-open-hint {
+  background: rgba(139, 30, 41, 0.1);
+  color: var(--seal-bordeaux);
+  transform: translateX(2px);
+}
+
+/* Con dấu sáp Đỏ Ngọc Ruby mạ vàng ở đỉnh tam giác nắp */
+.wax-seal-button {
+  position: absolute;
+  top: 39%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, #A82431 0%, var(--seal-bordeaux) 62%, var(--seal-bordeaux-dark) 100%);
+  border: none;
+  box-shadow:
+    0 8px 18px rgba(99, 17, 26, 0.32),
+    inset 0 2px 4px rgba(255, 255, 255, 0.32),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.45),
+    0 0 0 2px #D6B56E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 6;
+  transition: transform 0.3s var(--ease-spring), opacity 0.35s var(--ease-soft);
+}
+
+.wax-seal-button:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+body[data-state="opening"] .wax-seal-button {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.75);
+  pointer-events: none;
+}
+
+.seal-ring {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px dashed rgba(244, 224, 174, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seal-monogram {
+  font-family: var(--font-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: #F7E5B7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   BƯỚC 2: BỘ THIỆP MỜI GIẤY NGỌC TRAI (THE INVITATION SUITE)
+   ========================================================================== */
+.letter-scene {
+  width: 100%;
+  max-width: 560px;
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition: opacity 0.65s var(--ease-soft), transform 0.7s var(--ease-spring);
+}
+
+body[data-state="opened"] .letter-scene {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: letterReveal 0.65s var(--ease-spring) forwards;
+}
+
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Tấm thiệp chính (Main Invitation Card) */
+.invitation-card {
+  position: relative;
+  background: var(--paper-ivory);
+  color: var(--ink-primary);
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow:
+    0 24px 60px -16px rgba(85, 68, 42, 0.16),
+    0 4px 16px -4px rgba(85, 68, 42, 0.08),
+    0 0 0 1px rgba(176, 138, 66, 0.35);
+}
+
+/* Khung viền chỉ vàng kép bên trong */
+.card-frame-inner {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(176, 138, 66, 0.42);
+  pointer-events: none;
+}
+
+.card-frame-inner::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(176, 138, 66, 0.18);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: clamp(28px, 6vw, 46px) clamp(20px, 5vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Biểu tượng mũ tốt nghiệp mạ vàng */
+.card-crest-wrap {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 10px;
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-crest-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.card-institution {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 20px;
+}
+
+/* Khối lời mời đích danh */
+.card-salutation-wrap {
+  margin-bottom: 14px;
+}
+
+.card-kicker {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 6px;
+}
+
+.card-guest-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--seal-bordeaux);
+  line-height: 1.15;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(139, 30, 41, 0.22);
+}
+
+/* Tiêu đề chính của buổi lễ */
+.card-ceremony-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.15rem, 6.5vw, 3.05rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+  margin-top: 8px;
+  margin-bottom: 4px;
+  line-height: 1.12;
+}
+
+.card-cohort {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 18px;
+}
+
+/* Hoa văn phân cách */
+.card-divider-ornament {
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 2px auto 20px;
+  color: var(--gold-primary);
+}
+
+.card-divider-ornament::before,
+.card-divider-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(176, 138, 66, 0.45), transparent);
+}
+
+.ornament-diamond {
+  font-size: 9px;
+}
+
+/* Đoạn văn lời mời chân thành */
+.card-prose {
+  font-family: var(--font-serif);
+  font-size: clamp(1.04rem, 2.8vw, 1.16rem);
+  font-style: italic;
+  line-height: 1.72;
+  color: var(--ink-secondary);
+  max-width: 44ch;
+  margin-bottom: 26px;
+}
+
+/* Bảng thông tin Thời gian - Địa điểm - Liên hệ */
+.event-details-card {
+  width: 100%;
+  background: var(--paper-warm-box);
+  border: 1px solid var(--paper-border);
+  border-radius: 6px;
+  padding: 18px 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed rgba(176, 138, 66, 0.25);
+}
+
+.detail-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.detail-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(176, 138, 66, 0.12);
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.detail-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.detail-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.detail-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 2px;
+}
+
+.detail-title {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-primary);
+  margin-bottom: 2px;
+  line-height: 1.35;
+}
+
+.detail-sub {
+  display: block;
+  font-size: 12.5px;
+  color: var(--ink-secondary);
+  line-height: 1.45;
+}
+
+.detail-actions {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--seal-bordeaux);
+  background: #FFFFFF;
+  border: 1px solid rgba(139, 30, 41, 0.25);
+  padding: 4px 11px;
+  border-radius: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-soft);
+}
+
+.link-pill:hover {
+  background: var(--seal-bordeaux);
+  color: #FFFFFF;
+  border-color: var(--seal-bordeaux);
+}
+
+.card-footer-sign {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   THẺ PHÚC ĐÁP & LƯU BÚT TÁCH RIÊNG (RSVP ENCLOSURE CARD)
+   ========================================================================== */
+.rsvp-enclosure-card {
+  background: var(--paper-ivory);
+  border-radius: 8px;
+  padding: 24px clamp(20px, 5vw, 36px);
+  box-shadow:
+    0 18px 44px -14px rgba(85, 68, 42, 0.14),
+    0 0 0 1px rgba(176, 138, 66, 0.32);
+}
+
+.rsvp-section {
+  width: 100%;
+  text-align: center;
+}
+
+.rsvp-heading {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.rsvp-desc {
+  font-size: 12.5px;
+  color: var(--ink-secondary);
+  margin-bottom: 16px;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.attendance-toggle-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.toggle-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle-option span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--paper-border);
+  background: var(--paper-warm-box);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  transition: all 0.2s var(--ease-soft);
+  text-align: center;
+}
+
+.toggle-option input:checked + span {
+  border-color: var(--seal-bordeaux);
+  background: rgba(139, 30, 41, 0.06);
+  color: var(--seal-bordeaux);
+  font-weight: 600;
+}
+
+.wish-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wish-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--ink-secondary);
+}
+
+.btn-suggest-wish {
+  background: none;
+  border: none;
+  color: var(--gold-primary);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.btn-suggest-wish:hover {
+  color: var(--seal-bordeaux);
+}
+
+.wish-textarea {
+  width: 100%;
+  border: 1px solid var(--paper-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-primary);
+  background: var(--paper-warm-box);
+  resize: vertical;
+  min-height: 68px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.wish-textarea:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  background: #FFFFFF;
+}
+
+.btn-submit-rsvp {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background: var(--seal-bordeaux);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 16px rgba(139, 30, 41, 0.22);
+}
+
+.btn-submit-rsvp:hover {
+  background: var(--seal-bordeaux-dark);
+  transform: translateY(-1px);
+}
+
+/* Trạng thái sau khi đã xác nhận RSVP */
+.confirmed-rsvp-box {
+  background: var(--paper-warm-box);
+  border: 1px solid rgba(176, 138, 66, 0.35);
+  border-radius: 6px;
+  padding: 18px;
+  text-align: center;
+}
+
+.confirmed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1B6535;
+  background: rgba(27, 101, 53, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.confirmed-wish-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-secondary);
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+
+.confirmed-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-download-pass {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--gold-primary);
+  background: var(--ink-primary);
+  color: #FAF6EE;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s var(--ease-soft);
+}
+
+.btn-download-pass:hover {
+  background: var(--seal-bordeaux);
+  border-color: var(--seal-bordeaux);
+}
+
+.btn-edit-response {
+  background: none;
+  border: none;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: center;
+}
+
+/* Toast thông báo */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast-item {
+  background: #1C1917;
+  color: #FAF7F2;
+  border: 1px solid var(--gold-primary);
+  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.25);
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  animation: toastFadeIn 0.3s var(--ease-spring);
+}
+
+@keyframes toastFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (IPHONE SE 375PX, IPHONE 16 393PX, PRO MAX, DESKTOP)
+   ========================================================================== */
+@media (max-width: 520px) {
+  .nav-header {
+    padding: 0 12px;
+  }
+  .nav-brand {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+  .nav-actions {
+    gap: 5px;
+  }
+  .nav-btn {
+    padding: 4px 9px;
+    font-size: 10.5px;
+  }
+  .nav-btn .nav-muted {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .wax-seal-button {
+    width: 46px;
+    height: 46px;
+  }
+  .seal-ring {
+    width: 36px;
+    height: 36px;
+  }
+  .seal-monogram {
+    font-size: 11.5px;
+  }
+  .envelope-details {
+    top: 51%;
+    bottom: 8px;
+    padding: 4px 8px 10px;
+  }
+  .env-guest-name {
+    font-size: clamp(1.4rem, 5.8vw, 1.85rem);
+    margin-bottom: 2px;
+  }
+  .env-kicker {
+    font-size: 8.5px;
+    margin-bottom: 2px;
+  }
+  .env-sub {
+    font-size: 10.5px;
+    margin-bottom: 6px;
+  }
+  .env-open-hint {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+  .experience-stage {
+    padding: 64px 12px 36px;
+  }
+  .card-content {
+    padding: 24px 16px;
+  }
+  .event-details-card {
+    padding: 14px 12px;
+  }
+  .detail-row {
+    gap: 10px;
+  }
+  .attendance-toggle-group {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,11 @@
+# Tuyệt đối không đẩy công cụ tạo link (Studio Chủ Nhân & Khóa Ký ECDSA) lên Vercel
+admin.html
+js/admin.js
+css/admin.css
+
+# Bỏ qua các file nháp / cũ không dùng trên production
+js/app.js
+css/styles.css
+assets/
+template.png
+.DS_Store

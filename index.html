@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Thiệp Mời Lễ Tốt Nghiệp — Đại học FPT Cần Thơ</title>
+  <meta name="description" content="Thiệp mời Lễ Tốt Nghiệp Đại học FPT Cần Thơ — Chủ Nhật, 25/10/2026 | 10:00 Sáng" />
+
+  <!-- Google Fonts: Newsreader (Luxury Editorial Serif) & Be Vietnam Pro (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/invitation.css" />
+</head>
+<body data-state="sealed">
+
+  <!-- Canvas hạt bụi vàng Champagne lấp lánh -->
+  <canvas id="glitter-canvas" aria-hidden="true"></canvas>
+
+  <!-- Thanh điều hướng tinh tế dành riêng cho khách mời -->
+  <header class="nav-header">
+    <div class="nav-brand">
+      <span class="brand-dot">◆</span>
+      <span>ĐẠI HỌC FPT CẦN THƠ · 2026</span>
+    </div>
+    <div class="nav-actions">
+      <button type="button" class="nav-btn hidden" id="btn-close-envelope" title="Đóng phong bì để xem lại hiệu ứng mở">
+        ← Đóng phong bì
+      </button>
+    </div>
+  </header>
+
+  <!-- KHÔNG GIAN THIỆP MỜI CHÍNH -->
+  <main class="experience-stage">
+
+    <!-- =======================================================================
+         BƯỚC 1: PHONG BÌ KEM NGÀ & SÁP ĐỎ RUBY (3D LUXURY ENVELOPE)
+         ======================================================================= -->
+    <section class="envelope-scene" id="envelope-scene" aria-label="Phong bì thư mời tốt nghiệp">
+      <div class="envelope-wrapper" id="envelope-wrapper" title="Chạm để mở niêm phong thiệp mời">
+        
+        <!-- Lớp lót ánh vàng Champagne bên trong phong bì -->
+        <div class="envelope-back-liner"></div>
+
+        <!-- Tấm thiệp lụa bên trong trượt lên khi mở nắp -->
+        <div class="envelope-rising-card" aria-hidden="true">
+          <div class="rising-card-inner">
+            <span class="rising-kicker">ĐẠI HỌC FPT CẦN THƠ</span>
+            <span class="rising-title">Lễ Tốt Nghiệp</span>
+          </div>
+        </div>
+
+        <!-- 2 cánh gập 2 bên của phong bì -->
+        <div class="envelope-side-flaps"></div>
+
+        <!-- Túi phong bì phía dưới -->
+        <div class="envelope-pocket"></div>
+
+        <!-- Khung viền chỉ vàng Champagne mặt ngoài -->
+        <div class="envelope-face"></div>
+
+        <!-- Nắp phong bì trên cùng (3D Flip Flap) -->
+        <div class="envelope-flap-top"></div>
+
+        <!-- Thông tin người nhận trên mặt phong bì -->
+        <div class="envelope-details">
+          <span class="env-kicker">THIỆP MỜI TRÂN TRỌNG GỬI ĐẾN</span>
+          <h1 class="env-guest-name" id="env-guest-name">Bạn của mình</h1>
+          <p class="env-sub">Lễ Tốt Nghiệp · Đại học FPT Cần Thơ</p>
+          <div class="env-open-hint">
+            <span>Chạm để mở thiệp</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Con dấu sáp đỏ Ruby mạ vàng ở đỉnh nắp phong bì -->
+        <button type="button" class="wax-seal-button" id="btn-wax-seal" title="Chạm để mở niêm phong">
+          <span class="seal-ring">
+            <span class="seal-monogram">FPTU</span>
+          </span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         BƯỚC 2: TẤM THIỆP MỜI CHÍNH & THẺ PHÚC ĐÁP (THE INVITATION SUITE)
+         ======================================================================= -->
+    <section class="letter-scene" id="letter-scene" aria-label="Bức thư mời chính thức">
+      
+      <!-- TẤM THIỆP CHÍNH (MAIN INVITATION CARD) -->
+      <article class="invitation-card">
+        <div class="card-frame-inner" aria-hidden="true"></div>
+
+        <div class="card-content">
+          
+          <!-- Biểu tượng tốt nghiệp mạ vàng tinh giản -->
+          <div class="card-crest-wrap" aria-hidden="true">
+            <svg viewBox="0 0 48 48" class="card-crest-icon" fill="none" stroke="currentColor">
+              <polygon points="24,8 44,17 24,26 4,17" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M12,21v10c0,4.5 12,7.5 12,7.5s12-3 12-7.5V21" stroke-width="1.4"/>
+              <line x1="38" y1="19.5" x2="38" y2="33" stroke-width="1.4"/>
+              <circle cx="38" cy="34.5" r="1.8" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <p class="card-institution">ĐẠI HỌC FPT CẦN THƠ</p>
+
+          <!-- Lời mời đích danh -->
+          <div class="card-salutation-wrap">
+            <span class="card-kicker">Trân trọng kính mời</span>
+            <h2 class="card-guest-name" id="card-guest-name">Bạn của mình</h2>
+          </div>
+
+          <!-- Tên buổi lễ -->
+          <h3 class="card-ceremony-title">Lễ Tốt Nghiệp</h3>
+          <span class="card-cohort">Năm 2026</span>
+
+          <div class="card-divider-ornament" aria-hidden="true">
+            <span class="ornament-diamond">◆</span>
+          </div>
+
+          <!-- Tâm thư ngắn gọn, chân thành -->
+          <p class="card-prose" id="card-custom-prose">
+            “Hành trình thanh xuân và nỗ lực tại Đại học FPT Cần Thơ sắp khép lại bằng một cột mốc ý nghĩa. Mình rất mong được đón tiếp và cùng bạn lưu lại những khung hình kỷ niệm thật đẹp trong ngày đặc biệt này.”
+          </p>
+
+          <!-- Bảng thông tin buổi lễ bố cục thanh lịch -->
+          <div class="event-details-card">
+            <div class="detail-row">
+              <div class="detail-icon-box">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">THỜI GIAN</span>
+                <strong class="detail-title">10:00 Sáng — Chủ Nhật, 25/10/2026</strong>
+                <span class="detail-sub">Khung giờ lễ chính thức: 10:00 Sáng – 11:00 Sáng</span>
+                <div class="detail-actions">
+                  <button type="button" class="link-pill" id="btn-add-calendar">
+                    + Lưu lịch điện thoại (.ics)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-icon-box">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">ĐỊA ĐIỂM TỔ CHỨC</span>
+                <strong class="detail-title">Hội trường chính — Đại học FPT Cần Thơ</strong>
+                <span class="detail-sub">Số 600 Nguyễn Văn Cừ nối dài, P. An Bình, Q. Ninh Kiều, TP. Cần Thơ</span>
+                <div class="detail-actions">
+                  <a href="https://www.google.com/maps/search/?api=1&query=FPT+University+Can+Tho+600+Nguyen+Van+Cu+Noi+Dai+An+Binh+Can+Tho" target="_blank" rel="noopener noreferrer" class="link-pill">
+                    Mở chỉ đường Google Maps ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-icon-box">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">LIÊN HỆ ĐÓN TIẾP</span>
+                <strong class="detail-title">Điện thoại: 0774 889 191</strong>
+                <span class="detail-sub">Gọi cho mình (+84 774 889 191) khi bạn đến cổng trường nhé</span>
+                <div class="detail-actions">
+                  <a href="tel:+84774889191" class="link-pill">
+                    Gọi điện trực tiếp ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer-sign">
+            <span>Sự hiện diện của bạn là niềm vinh hạnh lớn nhất trong ngày tốt nghiệp của mình</span>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- THẺ PHÚC ĐÁP & TẢI ẢNH KỶ NIỆM TÁCH RIÊNG (RSVP ENCLOSURE SLIP) -->
+      <aside class="rsvp-enclosure-card" aria-label="Thẻ phúc đáp và lưu bút">
+        <div class="rsvp-section">
+          <span class="rsvp-heading">THẺ PHÚC ĐÁP &amp; LƯU BÚT</span>
+          <p class="rsvp-desc">Xác nhận tham dự để mình đón tiếp chu đáo và tải về tấm thiệp kỷ niệm riêng của bạn.</p>
+
+          <!-- Trạng thái 1: Biểu mẫu xác nhận -->
+          <form class="rsvp-form" id="rsvp-form">
+            <div class="attendance-toggle-group">
+              <label class="toggle-option">
+                <input type="radio" name="attendance" value="attending" checked />
+                <span>✓ Sẽ đến chung vui</span>
+              </label>
+              <label class="toggle-option">
+                <input type="radio" name="attendance" value="remote" />
+                <span>✦ Gửi lời chúc từ xa</span>
+              </label>
+            </div>
+
+            <div class="wish-input-wrap">
+              <div class="wish-label-row">
+                <span>Lời chúc từ <strong id="stub-guest-label">Bạn của mình</strong>:</span>
+                <button type="button" class="btn-suggest-wish" id="btn-suggest-wish">Gợi ý câu chúc ↻</button>
+              </div>
+              <textarea class="wish-textarea" id="wish-input" rows="2" placeholder="Viết vài dòng chúc mừng hoặc nhắn nhủ..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit-rsvp">
+              <span>Xác Nhận &amp; Lưu Lời Chúc</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Trạng thái 2: Đã xác nhận -->
+          <div class="confirmed-rsvp-box hidden" id="confirmed-rsvp-box">
+            <span class="confirmed-badge" id="confirmed-status-text">✓ ĐÃ XÁC NHẬN SẼ THAM DỰ</span>
+            <p class="confirmed-wish-quote" id="confirmed-wish-quote"></p>
+            
+            <div class="confirmed-actions">
+              <button type="button" class="btn-download-pass" id="btn-download-pass">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>Tải Ảnh Thiệp Kỷ Niệm (PNG)</span>
+              </button>
+              <button type="button" class="btn-edit-response" id="btn-edit-rsvp">
+                Chỉnh sửa lại phản hồi
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </section>
+
+  </main>
+
+  <!-- Khung hiển thị thông báo nhẹ (Toast) -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <script src="js/invitation.js"></script>
+</body>
+</html>
