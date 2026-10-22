@@ -30,7 +30,8 @@
 
   let activeGuest = {
     name: 'Bạn của mình',
-    note: ''
+    note: '',
+    sig: ''
   };
 
   let wishCounter = 0;
@@ -197,10 +198,12 @@
       if (isValid) {
         activeGuest.name = rawName;
         activeGuest.note = rawNote;
+        activeGuest.sig = sig;
       } else {
         // Phát hiện link tự sửa tên hoặc không có chữ ký ECDSA hợp lệ -> Chặn & đưa về mặc định
         activeGuest.name = 'Bạn của mình';
         activeGuest.note = '';
+        activeGuest.sig = '';
         if (window.history && window.history.replaceState) {
           window.history.replaceState(null, '', window.location.pathname);
         }
@@ -208,6 +211,7 @@
     } else {
       activeGuest.name = 'Bạn của mình';
       activeGuest.note = '';
+      activeGuest.sig = '';
     }
 
     renderGuestToPage();
@@ -337,6 +341,21 @@
         try {
           localStorage.setItem(STORAGE_KEY_RSVPS, JSON.stringify(all));
         } catch (_) {}
+
+        // Đồng bộ lời chúc & xác nhận tham dự lên Server Vercel (/api/rsvp) kèm chữ ký ECDSA P-256
+        if (activeGuest.sig) {
+          fetch('/api/rsvp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: activeGuest.name,
+              note: activeGuest.note || '',
+              sig: activeGuest.sig,
+              status,
+              wish
+            })
+          }).catch(() => {});
+        }
 
         playPleasantChime();
         burstGlitter(45);
